@@ -1,0 +1,213 @@
+/* =========================================
+   NavBar.css - Full Updated & Layer-Perfect
+   ========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  background-color: #ffffff;
+  font-family: Arial, sans-serif;
+  
+  /* --- Pixel-Perfect Changes Start Here --- */
+  
+  position: relative; 
+  /* Force NavBar to be on top of ALL hero and mockup layers */
+  z-index: 1000; 
+  
+  /* Slighting more prominent shadow for elevation feel */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  
+  /* Slighting tweak bottom shadow to be less harsh on bright background */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  /* --- Pixel-Perfect Changes End Here --- */
+}
+
+/* --- Logo Section --- */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.logo-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 4px solid #006bff;
+  position: relative;
+}
+
+.logo-icon-inner-top {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 4px solid #00d0ff;
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+  background-color: white;
+}
+
+.logo-icon-inner-center {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  border: 4px solid #006bff;
+  position: absolute;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  transform: rotate(45deg);
+}
+
+.logo-text {
+  color: #006bff;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: -0.025em;
+}
+
+/* --- Navigation Links --- */
+.nav-links {
+  display: none; /* Hide on mobile by default */
+  align-items: center;
+  gap: 2rem;
+  color: #0b3558;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Show links on desktop screens */
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+  }
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.nav-item:hover {
+  color: #006bff;
+}
+
+.nav-caret {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.375rem;
+  margin-top: 0.125rem;
+  color: #4b5563;
+}
+
+/* --- Action Buttons --- */
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.login-btn {
+  background: transparent;
+  border: none;
+  color: #0b3558;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  padding: 0;
+}
+
+.login-btn:hover {
+  color: #006bff;
+}
+
+.get-started-btn {
+  background-color: #006bff;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.get-started-btn:hover {
+  background-color: #0056cc;
+}
+/* Purana duplicated code hata kar sirf ye rakho niche */
+
+.user-profile-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 6px;
+  background-color: #f8faff;
+  border-radius: 30px;
+  border: 1px solid #e1e8f0;
+}
+
+.user-name-display {
+  font-weight: 700;
+  color: #0b3558;
+  font-size: 14px;
+  padding: 0 10px;
+}
+
+.logout-mini-btn {
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  color: #0b3558;
+  border: 1px solid #e2e8f0;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* 🔥 Hover effect (premium feel) */
+.logout-mini-btn:hover {
+  background: linear-gradient(135deg, #ffe4e6, #fff1f2);
+  color: #e11d48;
+  border-color: #fecdd3;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 14px rgba(225, 29, 72, 0.15);
+}
+
+/* 👇 Click effect */
+.logout-mini-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.user-profile-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  background-color: #f8faff;
+  border-radius: 999px;
+  border: 1px solid #e1e8f0;
+}

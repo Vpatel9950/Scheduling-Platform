@@ -1,0 +1,152 @@
+/* =========================================
+   LandingPage2.css - Trusted By Section
+   ========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.trusted-section {
+  position: relative;
+  /* Top padding thodi zyada rakhi hai taaki upar wale page se spacing sahi aaye */
+  padding: -10rem 2rem 8rem 2rem; 
+  margin-top: -10rem;
+  background-color: transparent; /* Transparent kiya taaki purana shape dikhe */
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.trusted-container {
+  position: relative;
+  z-index: 1; /* Content blob ke upar rahega */
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trusted-text {
+  font-size: 1.125rem;
+  color: #0b3558;
+  margin-bottom: 3rem;
+}
+
+.trusted-text strong {
+  font-weight: 800;
+}
+
+/* Logos Grid */
+.logos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3.5rem;
+  margin-bottom: 7rem;
+}
+
+.logo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #0b3558;
+  opacity: 0.9;
+}
+
+/* Main Content Area */
+.main-content {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.main-heading {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #0b3558;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.sub-heading {
+  font-size: 1.25rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.signup-btn {
+  background-color: #006bff;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 1.1rem 2.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.signup-btn:hover {
+  background-color: #0056cc;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 2.75rem;
+  }
+  .logos-grid {
+    gap: 2rem;
+  }
+  .trusted-section {
+    padding: 4rem 1.5rem;
+  }
+}
+
+
+/* Container ko hide karna zaroori hai taaki logos bahar na dikhein */
+.logos-wrapper {
+  overflow: hidden;
+  width: 100vw;
+  padding: 2rem 0;
+  position: relative;
+  /* mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); */
+}
+
+.logos-grid {
+  display: flex;
+  width: max-content; /* Content ke hisaab se width lega */
+  gap: 5rem;
+  align-items: center;
+  /* Animation lagana yahan zaroori hai */
+  animation: scrollInfinite 20s linear infinite;
+}
+
+/* Logos ke beech space maintain karne ke liye */
+.logo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #0b3558;
+  white-space: nowrap; /* Text line break na ho */
+}
+
+/* KEYFRAMES: Right se Left movement ke liye */
+@keyframes scrollInfinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* 50% kyunki hum content ko double karenge seamless loop ke liye */
+  }
+}
+

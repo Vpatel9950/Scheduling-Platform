@@ -1,0 +1,314 @@
+/* =========================================
+   LandingPage.css - Updated with Glass Shadow & Rotating Shapes
+   ========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.hero-section {
+  /* overflow-x: hidden; */
+  position: relative;
+  padding: 4rem 2rem;
+  background-color: transparent;
+  font-family: Arial, sans-serif;
+  min-height: 145vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* --- Abstract Background Shapes (Naya feature: Rotation) --- */
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotate-slow-reverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.bg-shape-blue {
+  position: absolute;
+  top: -5%;
+  right: 15%;
+  width: 600px;
+  height: 600px;
+  background-color: #009dfc;
+  /* Organic shape banayega */
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  z-index: 0;
+  /* 40 sec ka smooth rotation animation */
+  animation: rotate-slow 10s linear infinite;
+  transform-origin: center; /* Axis par rotate karne ke liye */
+}
+
+.bg-shape-purple {
+  position: absolute;
+  bottom: 5%;
+  right: -5%;
+  width: 700px;
+  height: 700px;
+  background-color: #d946ef;
+  border-radius: 50% 30% 60% 40% / 60% 40% 50% 50%;
+  z-index: 0;
+  /* 30 sec ka slow reverse rotation animation */
+  animation: rotate-slow-reverse 10s linear infinite;
+  transform-origin: center;
+}
+
+/* --- NAYA: Frosted Glass Shadow Pane --- */
+.glass-shadow-pane {
+  position: absolute;
+  top: 25%; /* Page ke content se alignment adjust ki hai */
+  right: 12%;
+  width: 42%; /* Ek bada pane jo piche visual mockup area ko cover kare */
+  height: 37%;
+  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+  backdrop-filter: blur(25px); /* Frost effect */
+  -webkit-backdrop-filter: blur(25px); /* Safari support */
+  border-radius: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Subtle inner light boundary */
+  /* Multiple shadows depth aur definition ke liye */
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.1), /* Badi diffuse shadow */
+    0 10px 20px -5px rgba(0, 0, 0, 0.05), /* Choti diffused shadow */
+    inset 0 1px 0 rgba(255, 255, 255, 0.1), /* Inner highlight highlight */
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1); /* Inner bottom shadow */
+  z-index: 1; /* Layering: shapes (0) < glass pane < content (container, z-index set karna hai hume) */
+  pointer-events: none; /* User isse interact nahi kar payega */
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2; /* Content layer hamesha glass pane aur shapes ke upar rahega */
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .hero-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* --- Left Content Section --- */
+.hero-content {
+  flex: 1;
+  max-width: 500px;
+}
+
+.hero-title {
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: #0b3558;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 450px;
+}
+
+/* OAuth Buttons */
+.oauth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.auth-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 320px;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.auth-btn:hover { opacity: 0.9; }
+.auth-btn.google { background-color: #006bff; color: white; }
+.auth-btn.microsoft { background-color: #0b3558; color: white; }
+
+.icon-wrapper {
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1.5rem;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  max-width: 320px;
+  margin-bottom: 1rem;
+}
+
+.divider::before, .divider::after { content: ''; flex: 1; border-bottom: 1px solid #e5e7eb; }
+.divider:not(:empty)::before { margin-right: .5em; }
+.divider:not(:empty)::after { margin-left: .5em; }
+
+.signup-link-wrapper { font-size: 0.875rem; color: #4b5563; }
+.signup-link { color: #006bff; text-decoration: none; font-weight: bold; }
+.signup-link:hover { text-decoration: underline; }
+
+/* --- Right Content (Animated Slider Mockup) --- */
+.hero-visual {
+  flex: 1.2;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  position: relative; /* perspective works relative to parent */
+}
+
+.workflow-mockup {
+  width: 120vw;
+  max-width: 700px;
+  background-color: #ffffff;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0,0,0,0.05);
+  padding: 2.5rem;
+  position: relative;
+  height: 480px; 
+  overflow: hidden; 
+}
+
+/* Mockup Sliding Animations */
+@keyframes slideInUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideOutUp {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-40px); opacity: 0; }
+}
+
+.mockup-slide {
+  
+  position: absolute;
+  top: 2.5rem;
+  left: 2.5rem;
+  right: 2.5rem;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mockup-slide.active {
+  visibility: visible;
+  animation: slideInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  z-index: 10;
+}
+
+.mockup-slide.exit {
+  visibility: visible;
+  animation: slideOutUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  z-index: 5;
+}
+
+.mockup-title {
+  font-size: 1.75rem;
+  color: #0b3558;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+/* --- Slide 0: Workflow Cards Styles --- */
+.cards-container {
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+}
+
+@media (min-width: 640px) { .cards-container { flex-direction: row; } }
+
+.workflow-card {
+  flex: 1;
+  border: 1px solid #f3f4f6;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: white;
+}
+
+.badge {
+  background-color: #e0f2fe;
+  color: #0284c7;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  align-self: flex-start;
+  margin-bottom: 1rem;
+}
+
+.card-icon { margin-bottom: 1rem; height: 48px; display: flex; align-items: center; justify-content: center; }
+.card-title { color: #0b3558; font-weight: 700; font-size: 1.15rem; margin-bottom: 1.5rem; }
+.action-box { width: 100%; border: 1.5px solid #006bff; color: #0b3558; font-size: 0.875rem; font-weight: 600; padding: 1rem 0.5rem; border-radius: 0.5rem; margin-bottom: 0.5rem; }
+.dotted-line { height: 20px; border-left: 2px dashed #006bff; margin: 0.25rem 0; }
+.result-box { width: 100%; background-color: #eff6ff; color: #0b3558; font-size: 0.875rem; font-weight: 600; padding: 1rem 0.5rem; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+
+
+/* --- Slide 1: Calendar UI Styles --- */
+.calendar-ui {
+  display: flex;
+  border-top: 1px solid #f3f4f6;
+  margin-top: -0.5rem;
+  padding-top: 1.5rem;
+}
+
+.cal-col-left { flex: 1; padding-right: 1.5rem; }
+.acme-logo { display: flex; align-items: center; gap: 0.5rem; font-weight: bold; color: #0b3558; margin-bottom: 2rem; }
+.avatar-img { width: 40px; height: 40px; border-radius: 50%; background-color: #006bff; margin-bottom: 1rem; overflow: hidden; }
+.rep-name { color: #6b7280; font-size: 0.875rem; font-weight: 600; }
+.meeting-name { color: #0b3558; font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem; }
+.meeting-meta { display: flex; align-items: center; gap: 0.5rem; color: #4b5563; font-size: 0.875rem; margin-bottom: 0.5rem; font-weight: 500; }
+.skeleton-line { height: 8px; background-color: #e5e7eb; border-radius: 4px; margin-bottom: 0.5rem; }
+
+.cal-col-mid { flex: 1.5; border-left: 1px solid #f3f4f6; border-right: 1px solid #f3f4f6; padding: 0 1.5rem; }
+.cal-subtitle { font-weight: bold; color: #0b3558; margin-bottom: 1rem; font-size: 1rem; }
+.month-nav { display: flex; justify-content: center; align-items: center; gap: 1rem; font-size: 0.875rem; margin-bottom: 1rem; }
+.nav-arrow { width: 28px; height: 28px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #006bff; background-color: #eff6ff; font-weight: bold; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; gap: 0.4rem; font-size: 0.875rem; }
+.day-name { color: #6b7280; font-size: 0.7rem; font-weight: bold; margin-bottom: 0.5rem; }
+.date-num { width: 30px; height: 30px; display: flex; justify-content: center; align-items: center; margin: auto; border-radius: 50%; color: #4b5563; font-weight: 500; }
+.date-num.active-light { background-color: #eff6ff; color: #006bff; font-weight: bold; }
+.date-num.active-dark { background-color: #006bff; color: #ffffff; font-weight: bold; }
+.timezone-info { font-size: 0.75rem; color: #0b3558; margin-top: 1.5rem; font-weight: bold; }
+
+.cal-col-right { flex: 1; padding-left: 1.5rem; position: relative; }
+.selected-date-text { color: #4b5563; font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem; }
+.time-btn { display: block; width: 100%; padding: 0.6rem 0; border: 1px solid #006bff; color: #006bff; font-weight: bold; border-radius: 0.25rem; background: white; margin-bottom: 0.5rem; font-size: 0.875rem; text-align: center; }
+.time-row { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; position: relative; }
+.time-btn-dark { flex: 1; padding: 0.6rem 0; background-color: #4b5563; color: white; border: none; font-weight: bold; border-radius: 0.25rem; font-size: 0.875rem; }
+.confirm-btn { flex: 1; padding: 0.6rem 0; background-color: #006bff; color: white; border: none; font-weight: bold; border-radius: 0.25rem; font-size: 0.875rem; cursor: pointer; }
+.mouse-cursor { position: absolute; bottom: -12px; right: -5px; width: 22px; height: 22px; z-index: 20; filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.3)); }

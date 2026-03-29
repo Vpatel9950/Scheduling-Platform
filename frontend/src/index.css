@@ -1,0 +1,5 @@
+body, html {
+  overflow-x: hidden; /* Ye line horizontal scroll ko hamesha ke liye block kar degi */
+  margin: 0;
+  padding: 0;
+}
